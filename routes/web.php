@@ -3,6 +3,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ActivityLogController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ActivityLogGeneralController;
+use App\Http\Controllers\AlcoholismoController;
+
 
 
 use Illuminate\Support\Facades\Route;
@@ -48,3 +50,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 });
 // Ruta para la autenticación
 require __DIR__.'/auth.php';
+
+
+Route::resource('lstalcoholismo', AlcoholismoController::class);
+Route::get('/formularioalcoholismo', [AlcoholismoController::class, 'formulario'])->name('lsttalcoholismo.formulario');
