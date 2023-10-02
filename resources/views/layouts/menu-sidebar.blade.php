@@ -189,6 +189,21 @@
 
             <!-- NO BORRAR ESTE CODIGO  -->
 
+            <li class="nav-item">
+                <a class="nav-link menu-link" href="#" data-bs-toggle="collapse" data-bs-target="#sidebarSuperadministrador" aria-expanded="false" aria-controls="sidebarSuperadministrador">
+                    <i class="fas fa-bars"></i> <span data-key="t-Configuración">Configuracion Menú</span>
+                </a>
+                <div class="collapse menu-dropdown" id="sidebarSuperadministrador">
+                    <ul class="nav nav-sm flex-column">
+                        <li class="nav-item">
+                            <a href="{{ route('listadoalcohol.index') }}" class="nav-link" data-key="t-Suscripción">
+                                <i class="fas fa-glass-whiskey"></i> Alcohol
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
         </div>
     </div>
 

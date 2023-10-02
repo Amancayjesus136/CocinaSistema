@@ -2,16 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Alcoholismo;
 
-class ListadoSegundoController extends Controller
+class AlcoholController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $tragos = Alcoholismo::all();
+        return view ('alcohol.index', compact('tragos'));
     }
 
     /**
@@ -27,7 +30,8 @@ class ListadoSegundoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Alcoholismo::create($request->all());
+        return redirect()->route('listadoalcohol.index');
     }
 
     /**
@@ -43,7 +47,8 @@ class ListadoSegundoController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $trago = Alcoholismo::findOrFail($idAlcoholismos);
+        return redirect()->route('listadoalcohol.index');
     }
 
     /**
@@ -51,14 +56,20 @@ class ListadoSegundoController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $trago = Alcoholismo::findOrFail($id);
+        $trago->update($request->all());
+        return redirect()->route('listadoalcohol.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
-    {
-        //
-    }
+    public function destroy($idAlcoholismos)
+{
+    $trago = Alcoholismo::findOrFail($idAlcoholismos);
+    $trago->delete();
+    return redirect()->route('listadoalcohol.index');
+}
+
+
 }
