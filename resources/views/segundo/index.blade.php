@@ -62,7 +62,7 @@
                                         <td>
                                         <a href="#" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editarModal{{ $segundo->idSegundos }}">
                                             <i class="fas fa-edit"></i> Editar
-                                        </a>0
+                                        </a>
                                             <a href="#" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#eliminarBebidaModal{{ $segundo->idSegundos }}">
                                                 <i class="fas fa-trash-alt"></i> Eliminar
                                             </a>
