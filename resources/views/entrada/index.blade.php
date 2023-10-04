@@ -16,7 +16,7 @@
 <div class="row">
     <div class="col-12">
         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-            <h4 class="mb-sm-0">Listado Licores</h4>
+            <h4 class="mb-sm-0">Listado de Entradas</h4>
 
             <div class="page-title-right">
             <div class="card-header align-items-center d-flex">
@@ -46,7 +46,7 @@
                             <thead class="table-light">
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Trago</th>
+                                    <th scope="col">Entradas</th>
                                     <th scope="col">Precio</th>
                                     <th scope="col" style="width: 150px;">Acciones</th>
                                 </tr>
@@ -54,16 +54,16 @@
                             <tbody>
                                 <!-- FILAS DE LA TABLA -->
                                 @php $contador = 1; @endphp
-                                @foreach($tragos as $trago)
+                                @foreach($entradas as $entrada)
                                     <tr>
                                         <td>{{ $contador }}</td>
-                                        <td>{{ $trago->tragos }}</td>
-                                        <td>{{ $trago->precio_trago }}</td>
+                                        <td>{{ $entrada->entradas }}</td>
+                                        <td>{{ $entrada->precio_entrada }}</td>
                                         <td>
-                                        <a href="#" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editarModal{{ $trago->idAlcoholismos }}">
+                                        <a href="#" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editarModal{{ $entrada->idEntradas }}">
                                             <i class="fas fa-edit"></i> Editar
                                         </a>
-                                            <a href="#" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#eliminarTragoModal{{ $trago->idAlcoholismo }}">
+                                            <a href="#" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#eliminarBebidaModal{{ $entrada->idEntradas }}">
                                                 <i class="fas fa-trash-alt"></i> Eliminar
                                             </a>
                                         </td>
@@ -92,20 +92,20 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{route('listadoalcohol.store')}}" method="POST" id="reservation-form">
+                    <form action="{{route('listadoentradas.store')}}" method="POST" id="reservation-form">
                         @csrf
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label for="trago" class="form-label">Ingrese el Nombre</label>
-                                    <input type="text" class="form-control" id="trago" name="tragos" required>
+                                    <label for="entradas" class="form-label">Ingrese el Nombre</label>
+                                    <input type="text" class="form-control" id="entradas" name="entradas" required>
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label for="precio_trago" class="form-label">Precio</label>
-                                    <input type="number" class="form-control" id="precio_trago" name="precio_trago" required>
+                                    <label for="precio_entradas" class="form-label">Precio</label>
+                                    <input type="number" class="form-control" id="precio_entradas" name="precio_entradas" required>
                                 </div>
                             </div>
                         </div>
@@ -117,31 +117,31 @@
     </div>
 <!-- Modal para Crear Nuevo Tema -->
 
-@foreach ($tragos as $trago)
+@foreach ($entradas as $entrada)
 <!-- Modal de Editar -->
-<div class="modal fade" id="editarModal{{ $trago->idAlcoholismos }}" tabindex="-1" aria-labelledby="editarTragoModalLabel" aria-hidden="true">
+<div class="modal fade" id="editarModal{{ $entrada->idEntradas }}" tabindex="-1" aria-labelledby="editarEntradaModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="editarTragoModalLabel">Editar Trago</h5>
+                <h5 class="modal-title" id="editarEntradaModalLabel">Editar Trago</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="{{ route('listadoalcohol.update', $trago->idAlcoholismos) }}">
+                <form method="POST" action="{{ route('listadoentradas.update', $entrada->idEntradas) }}">
                     @csrf
                     @method('PUT')
                     <div class="row">
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="trago" class="form-label">Ingrese el Nombre</label>
-                                <input type="text" class="form-control" id="tragos" name="tragos" value="{{ $trago->tragos}}" required>
+                                <label for="entradas" class="form-label">Ingrese el Nombre</label>
+                                <input type="text" class="form-control" id="entradas" name="entradas" value="{{ $entrada->entradas}}" required>
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="precio_trago" class="form-label">Precio</label>
-                                <input type="number" class="form-control" id="precio_trago" name="precio_trago" value="{{ $trago->precio_trago}}" required>
+                                <label for="precio_entradas" class="form-label">Precio</label>
+                                <input type="number" class="form-control" id="precio_entradas" name="precio_entradas" value="{{ $entrada->precio_entradas}}" required>
                             </div>
                         </div>
                     </div>
@@ -156,11 +156,11 @@
 </div>
 
 
-<div class="modal fade" id="eliminarTragoModal{{ $trago->idAlcoholismo }}" tabindex="-1" aria-labelledby="eliminarEmpresaModalLabel" aria-hidden="true">
+<div class="modal fade" id="eliminarBebidaModal{{ $entrada->idEntradas }}" tabindex="-1" aria-labelledby="eliminarEntradaModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="eliminarTracoModalLabel">Eliminar Trago</h5>
+                <h5 class="modal-title" id="eliminarEntradaModalLabel">Eliminar Bebida</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -168,7 +168,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <form method="POST" action="{{ route('listadoalcohol.destroy', $trago->idAlcoholismos) }}">
+                <form method="POST" action="{{ route('listadoentradas.destroy', $entrada->idEntradas) }}">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-danger">Eliminar</button>
@@ -177,6 +177,7 @@
         </div>
     </div>
 </div>
+
 @endforeach
 @endsection
 

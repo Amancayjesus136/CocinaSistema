@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Postre extends Model
 {
     use HasFactory;
+    protected $table      =   'postre';
+    protected $primaryKey =   'idPostres';  
+
+    protected $fillable = [
+        'postres',
+        'precio_postre',
+    ];
 }

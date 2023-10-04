@@ -4,6 +4,16 @@ use App\Http\Controllers\ActivityLogController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ActivityLogGeneralController;
 use App\Http\Controllers\AlcoholController;
+use App\Http\Controllers\BebidaController;
+use App\Http\Controllers\EntradaController;
+use App\Http\Controllers\PostreController;
+use App\Http\Controllers\RefrescoController;
+use App\Http\Controllers\SegundoController;
+
+
+
+
+
 
 
 
@@ -53,3 +63,14 @@ require __DIR__.'/auth.php';
 
 
 Route::resource('listadoalcohol', AlcoholController::class);
+Route::resource('listadobebidas', BebidaController::class);
+Route::resource('listadoentradas', EntradaController::class);
+Route::resource('listadopostres', PostreController::class);
+Route::resource('listadorefrescos', RefrescoController::class);
+Route::resource('listadosegundos', SegundoController::class);
+
+
+
+
+
+

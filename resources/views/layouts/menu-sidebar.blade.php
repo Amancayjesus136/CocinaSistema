@@ -202,6 +202,55 @@
                         </li>
                     </ul>
                 </div>
+
+                <div class="collapse menu-dropdown" id="sidebarSuperadministrador">
+                    <ul class="nav nav-sm flex-column">
+                        <li class="nav-item">
+                            <a href="{{ route('listadobebidas.index') }}" class="nav-link" data-key="t-Suscripción">
+                                <i class="fas fa-wine-bottle"></i> Bebidas
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="collapse menu-dropdown" id="sidebarSuperadministrador">
+                    <ul class="nav nav-sm flex-column">
+                        <li class="nav-item">
+                            <a href="{{ route('listadobebidas.index') }}" class="nav-link" data-key="t-Suscripción">
+                                <i class="fas fa-utensils"></i> Entradas
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="collapse menu-dropdown" id="sidebarSuperadministrador">
+                    <ul class="nav nav-sm flex-column">
+                        <li class="nav-item">
+                            <a href="{{ route('listadopostres.index') }}" class="nav-link" data-key="t-Suscripción">
+                                <i class="fas fa-ice-cream"></i> Postres
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="collapse menu-dropdown" id="sidebarSuperadministrador">
+                    <ul class="nav nav-sm flex-column">
+                        <li class="nav-item">
+                            <a href="{{ route('listadorefrescos.index') }}" class="nav-link" data-key="t-Suscripción">
+                                <i class="fas fa-tint"></i> Refrescos
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="collapse menu-dropdown" id="sidebarSuperadministrador">
+                    <ul class="nav nav-sm flex-column">
+                        <li class="nav-item">
+                            <a href="{{ route('listadosegundos.index') }}" class="nav-link" data-key="t-Suscripción">
+                                <i class="fas fa-utensils"></i> Segundos
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </li>
 
         </div>
