@@ -37,7 +37,7 @@ class AlcoholController extends Controller
     public function store(Request $request)
     {
         Alcoholismo::create($request->all());
-        return redirect()->route('listadoalcohol.index');
+        return redirect()->route('usuarios.edit');
     }
 
     /**

@@ -58,7 +58,7 @@
                                     <tr>
                                         <td>{{ $contador }}</td>
                                         <td>{{ $entrada->entradas }}</td>
-                                        <td>{{ $entrada->precio_entrada }}</td>
+                                        <td>{{ $entrada->precio_entradas }}</td>
                                         <td>
                                         <a href="#" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editarModal{{ $entrada->idEntradas }}">
                                             <i class="fas fa-edit"></i> Editar
