@@ -13,8 +13,14 @@ class AlcoholController extends Controller
      */
     public function index()
     {
-        $tragos = Alcoholismo::all();
-        return view ('alcohol.index', compact('tragos'));
+        $tragos = Alcoholismo::query();
+        if (!empty($_GET['s'])) {
+            $tragos = $tragos->where('idAlcoholismos', 'LIKE', '%'.$_GET['s'].'%')
+                                ->orWhere('tragos', 'LIKE', '%'.$_GET['s'].'%')
+                                ->orWhere('precio_trago', 'LIKE', '%'.$_GET['s'].'%');
+            }
+            $tragos = $tragos->get();
+        return view('alcohol.index', compact('tragos'));
     }
 
     /**

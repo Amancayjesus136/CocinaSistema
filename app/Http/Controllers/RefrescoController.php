@@ -13,8 +13,14 @@ class RefrescoController extends Controller
      */
     public function index()
     {
-        $refrescos = Refresco::all();
-        return view ('refresco.index', compact('refrescos'));
+        $refrescos = Refresco::query();
+        if (!empty($_GET['s'])) {
+            $refrescos = $refrescos->where('idRefrescos', 'LIKE', '%'.$_GET['s'].'%')
+                                ->orWhere('refrescos', 'LIKE', '%'.$_GET['s'].'%')
+                                ->orWhere('precio_refresco', 'LIKE', '%'.$_GET['s'].'%');
+            }
+            $refrescos = $refrescos->get();
+        return view('refresco.index', compact('refrescos'));
     }
 
     /**

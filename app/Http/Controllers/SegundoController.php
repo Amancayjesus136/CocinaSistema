@@ -13,8 +13,17 @@ class SegundoController extends Controller
      */
     public function index()
     {
-        $segundos = Segundo::all();
-        return view ('segundo.index', compact('segundos'));
+        $segundos = Segundo::query();
+        if (!empty($_GET['s'])) {
+            $segundos = $segundos->where('idSegundos', 'LIKE', '%'.$_GET['s'].'%')
+                                ->orWhere('segundos', 'LIKE', '%'.$_GET['s'].'%')
+                                ->orWhere('precio_segundo', 'LIKE', '%'.$_GET['s'].'%');
+            }
+            $segundos = $segundos->get();
+        return view('segundo.index', compact('segundos'));
+
+        //$segundos = Segundo::all();
+        //return view ('segundo.index', compact('segundos'));
     }
 
     /**

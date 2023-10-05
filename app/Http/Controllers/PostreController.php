@@ -12,8 +12,14 @@ class PostreController extends Controller
      */
     public function index()
     {
-        $postres = Postre::all();
-        return view ('postre.index', compact('postres'));
+        $postres = Postre::query();
+        if (!empty($_GET['s'])) {
+            $postres = $postres->where('idPostres', 'LIKE', '%'.$_GET['s'].'%')
+                                ->orWhere('postres', 'LIKE', '%'.$_GET['s'].'%')
+                                ->orWhere('precio_postre', 'LIKE', '%'.$_GET['s'].'%');
+            }
+            $postres = $postres->get();
+        return view('postre.index', compact('postres'));
     }
 
     /**

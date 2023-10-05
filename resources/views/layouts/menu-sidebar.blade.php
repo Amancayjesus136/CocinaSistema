@@ -216,7 +216,7 @@
                 <div class="collapse menu-dropdown" id="sidebarSuperadministrador">
                     <ul class="nav nav-sm flex-column">
                         <li class="nav-item">
-                            <a href="{{ route('listadobebidas.index') }}" class="nav-link" data-key="t-Suscripción">
+                            <a href="{{ route('listadoentradas.index') }}" class="nav-link" data-key="t-Suscripción">
                                 <i class="fas fa-utensils"></i> Entradas
                             </a>
                         </li>

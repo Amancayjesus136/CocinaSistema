@@ -12,8 +12,14 @@ class EntradaController extends Controller
      */
     public function index()
     {
-        $entradas = Entrada::all();
-        return view ('entrada.index', compact('entradas'));
+        $entradas = Entrada::query();
+        if (!empty($_GET['s'])) {
+            $entradas = $entradas->where('idEntradas', 'LIKE', '%'.$_GET['s'].'%')
+                                ->orWhere('entradas', 'LIKE', '%'.$_GET['s'].'%')
+                                ->orWhere('precio_entradas', 'LIKE', '%'.$_GET['s'].'%');
+            }
+            $entradas = $entradas->get();
+        return view('entrada.index', compact('entradas'));
     }
 
     /**

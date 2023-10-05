@@ -13,8 +13,14 @@ class BebidaController extends Controller
      */
     public function index()
     {
-        $gaseosas = Bebida::all();
-        return view ('bebida.index', compact('gaseosas'));
+        $gaseosas = Bebida::query();
+        if (!empty($_GET['s'])) {
+            $gaseosas = $gaseosas->where('idBebidas', 'LIKE', '%'.$_GET['s'].'%')
+                                ->orWhere('gaseosas', 'LIKE', '%'.$_GET['s'].'%')
+                                ->orWhere('precio_bebida', 'LIKE', '%'.$_GET['s'].'%');
+            }
+            $gaseosas = $gaseosas->get();
+        return view('bebida.index', compact('gaseosas'));
     }
 
     /**
